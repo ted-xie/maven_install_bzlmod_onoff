@@ -1,0 +1,26 @@
+module(
+  name = "maven_json",
+  version = "0.0.1",
+)
+
+bazel_dep(name = "rules_jvm_external", version = "6.1")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    name = "my_maven",
+    artifacts = [
+        "junit:junit:4.13.2",
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    # To generate the lock file:
+    # bazelisk run --enable_bzlmod @my_maven//:pin
+    lock_file = "@//:my_maven.json",
+)
+
+use_repo(
+    maven,
+    "my_maven",
+)
