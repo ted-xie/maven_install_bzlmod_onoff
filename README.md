@@ -26,3 +26,6 @@ INFO: Elapsed time: 4.431s, Critical Path: 0.02s
 INFO: 1 process: 1 internal.
 INFO: Build completed successfully, 1 total action
 ```
+
+[Link to rules_jvm_external issue](https://github.com/bazelbuild/rules_jvm_external/issues/1132)
+
