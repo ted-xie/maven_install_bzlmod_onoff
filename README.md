@@ -16,3 +16,13 @@ ERROR: An error occurred during the fetch of repository 'my_maven':
 [...]
 Error in fail: Cannot calculate input hash without artifacts or boms
 ```
+
+Meanwhile, the build works correctly with bzlmod disabled:
+```
+$ bazelisk build @my_maven//... --enable_bzlmod
+INFO: Analyzed 9 targets (102 packages loaded, 3356 targets configured).
+INFO: Found 9 targets...
+INFO: Elapsed time: 4.431s, Critical Path: 0.02s
+INFO: 1 process: 1 internal.
+INFO: Build completed successfully, 1 total action
+```
